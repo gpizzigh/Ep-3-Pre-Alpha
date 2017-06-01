@@ -39,7 +39,7 @@ RED = (255,0,0)
 black =(0,0,0)
 BLACK = (255, 255, 255, 0)
 #BLACK =()
-FPS = 60
+FPS = 5
 YEllOW = (246,255,0,255)
 LAPS=0
 smallfont = pyg.font.SysFont("comicsansms",20)
@@ -158,7 +158,7 @@ while running:
         direction+= 2.5
     if keys[1]==True:
         direction-= 2.5
-    
+
     movex=math.cos(direction/57.29)*forward
     movey=math.sin(direction/57.29)*forward
     pistax+=movex
@@ -177,8 +177,14 @@ while running:
 
     score(LAPS)
     tempo(TEMPO)
-    print(timer)
-    print(timer2)
+    print("Xpista:{0}".format(pistax))
+    print("Ypisat:{0}".format(pistay))
+    print("Xmov:{0}".format(movex))
+    print("Ymov:{0}".format(movey))
+    print("Xpos:{0}".format(xpos))
+    print("Ypos:{0}".format(ypos))
+    print("forward:{0}".format(forward))
+    print("direction:{0}".format(direction))
     #screen.blit(carro_mask, (xpos,ypos))
     pyg.display.flip()
     time.sleep(0.02)
@@ -198,7 +204,7 @@ while running:
             pyg.quit()
             exit(0)
 
-            
+
 
         if event.type == pyg.KEYDOWN:
             if event.key==K_LEFT:
@@ -211,7 +217,7 @@ while running:
                 keys[3]=True
             elif event.key == pyg.K_F10:
             	pyg.display.toggle_fullscreen()
-           
+
             elif event.key == pyg.K_ESCAPE:
                 pyg.quit()
                 exit(0)
